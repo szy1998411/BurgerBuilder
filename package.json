@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "@babel/core": "7.8.4",
+    "@emotion/core": "^10.0.28",
+    "@emotion/styled": "^10.0.27",
     "@svgr/webpack": "4.3.3",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -36,6 +38,7 @@
     "jest-environment-jsdom-fourteen": "1.0.1",
     "jest-resolve": "24.9.0",
     "jest-watch-typeahead": "0.4.2",
+    "lint-fix": "^0.24.0",
     "mini-css-extract-plugin": "0.9.0",
     "optimize-css-assets-webpack-plugin": "5.0.3",
     "pnp-webpack-plugin": "1.6.0",
@@ -44,6 +47,7 @@
     "postcss-normalize": "8.0.1",
     "postcss-preset-env": "6.7.0",
     "postcss-safe-parser": "4.0.1",
+    "prop-types": "^15.7.2",
     "react": "^16.13.0",
     "react-app-polyfill": "^1.0.6",
     "react-dev-utils": "^10.2.0",
@@ -64,7 +68,8 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "fix-lint": "prettier --write *.js src/components/*/*.js src/components/*/*/*.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -135,5 +140,8 @@
     "presets": [
       "react-app"
     ]
+  },
+  "devDependencies": {
+    "eslint-auto-fix": "^1.0.1"
   }
 }
