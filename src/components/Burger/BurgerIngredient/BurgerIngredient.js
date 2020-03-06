@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "@emotion/styled";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 const BreadBottom = styled.div`
   height: 13%;
@@ -154,5 +154,5 @@ export default class BurgerIngredient extends Component {
 }
 
 BurgerIngredient.propTypes = {
-    type: PropTypes.string.isRequired
+  type: PropTypes.string.isRequired
 };
