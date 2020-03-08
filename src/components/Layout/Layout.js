@@ -13,7 +13,6 @@ export default class Layout extends Component {
   render() {
     return (
       <Fragment>
-        <div>Toolbar, SideDrawer, Backdrop </div>
         <StyledMain>{this.props.children}</StyledMain>
       </Fragment>
     );
