@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-
+import BackDrop from "../BackDrop/BackDrop";
 const ModalDiv = styled.div`
   position: fixed;
   z-index: 500;
@@ -21,14 +21,19 @@ const ModalDiv = styled.div`
 `;
 const Modal = props => {
   return (
-    <ModalDiv
-      style={{
-        transform: props.showPurchase ? "translateY(0)" : "translateY(-100vh)",
-        opacity: props.showPurchase ? "1" : "0"
-      }}
-    >
-      {props.children}
-    </ModalDiv>
+    <React.Fragment>
+      <BackDrop show={props.showPurchase} clicked={props.modalClosed} />
+      <ModalDiv
+        style={{
+          transform: props.showPurchase
+            ? "translateY(0)"
+            : "translateY(-100vh)",
+          opacity: props.showPurchase ? "1" : "0"
+        }}
+      >
+        {props.children}
+      </ModalDiv>
+    </React.Fragment>
   );
 };
 

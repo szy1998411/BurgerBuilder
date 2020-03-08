@@ -28,6 +28,8 @@ export default class BurgerBuilder extends Component{
         this.removeIngredientHandler = this.removeIngredientHandler.bind(this);
         this.updatePurchaseState = this.updatePurchaseState.bind(this);
         this.purchaseHandler = this.purchaseHandler.bind(this);
+        this.purchaseCancelHandler = this.purchaseCancelHandler.bind(this);
+        this.purchaseContinueHandler = this.purchaseContinueHandler.bind(this);
     }
 
     purchaseHandler(){
@@ -75,6 +77,16 @@ export default class BurgerBuilder extends Component{
         this.updatePurchaseState(oldIngredients);
     }
 
+    purchaseCancelHandler(){
+        this.setState({
+            showPurchase: false,
+        })
+    }
+
+    purchaseContinueHandler(){
+        alert("This is not implemented now !");
+    }
+
     render() {
         let ingredient = this.state.ingredients;
         let disabled={};
@@ -87,8 +99,11 @@ export default class BurgerBuilder extends Component{
         }
         return (
             <React.Fragment>
-                <Modal showPurchase={this.state.showPurchase}>
-                    <OrderSummary ingredients={this.state.ingredients}/>
+                <Modal showPurchase={this.state.showPurchase} modalClosed={this.purchaseCancelHandler}>
+                    <OrderSummary ingredients={this.state.ingredients}
+                    purchaseCancelHandler={this.purchaseCancelHandler}
+                    purchaseContinueHandler={this.purchaseContinueHandler}
+                    totalPrice={this.state.totalPrice}/>
                 </Modal> 
                 <Burger ingredients={this.state.ingredients}/>
                 <BuildControls price={this.state.totalPrice} addHandler={this.addIngredientHandler} removeHandler={this.removeIngredientHandler}
