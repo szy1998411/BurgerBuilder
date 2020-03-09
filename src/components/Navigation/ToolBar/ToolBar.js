@@ -17,14 +17,23 @@ const ToolBarHeader = styled.header`
   z-index: 90;
 `;
 
+const LogoDiv = styled.div`
+  height: 80%;
+`;
+
 const ToolBarNav = styled.nav`
   height: 100%;
+  @media (max-width: 499px) {
+    display: none;
+  }
 `;
 
 const ToolBar = props => (
   <ToolBarHeader>
     <div> Menu </div>
-    <Logo />
+    <LogoDiv>
+      <Logo />
+    </LogoDiv>
     <ToolBarNav>
       <Items />
     </ToolBarNav>

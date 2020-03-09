@@ -5,7 +5,7 @@ import burgerLogo from "../../assets/images/logo.png";
 const LogoDiv = styled.div`
   background-color: white;
   padding: 8px;
-  height: 80%;
+  height: 100%;
   box-sizing: border-box;
   border-radius: 5px;
 `;
