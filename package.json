@@ -69,7 +69,7 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "fix-lint": "prettier --write *.js src/components/*/*.js src/components/*/*/*.js"
+    "fix-lint": "prettier --write *.js src/components/*/*.js src/components/*/*/*.js src/components/*/*/*/*.js"
   },
   "eslintConfig": {
     "extends": "react-app"

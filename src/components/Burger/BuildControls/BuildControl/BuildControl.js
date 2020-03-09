@@ -1,11 +1,11 @@
-import React, {Component} from 'react'
+import React, { Component } from "react";
 import styled from "@emotion/styled";
 
 const BuildControlDiv = styled.div`
-display: flex;
-justify-content: space-between;
-align-items: center;
-margin: 5px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 0;
 `;
 
 const BuildControlButtonLess = styled.button`
@@ -38,50 +38,56 @@ disabled: ${props => props.disabled}
 `;
 
 const BuildControlButtonMore = styled.button`
-display: block;
-font: inherit;
-padding: 5px;
-margin: 0 5px;
-width: 80px;
-border: 1px solid #AA6817;
-cursor: pointer;
-outline: none;
-background-color: #8F5E1E;
-color: white;
-&:hover{
-    background-color: #99703F;
+  display: block;
+  font: inherit;
+  padding: 5px;
+  margin: 0 5px;
+  width: 80px;
+  border: 1px solid #aa6817;
+  cursor: pointer;
+  outline: none;
+  background-color: #8f5e1e;
+  color: white;
+  &:hover {
+    background-color: #99703f;
     color: white;
-}
-&:active:{
-    background-color: #99703F;
+  }
+  &:active: {
+    background-color: #99703f;
     color: white;
-}
+  }
 `;
 
 const LabelDiv = styled.div`
-    padding: 10px;
-    font-weight: bold;
-    width: 80px;
+  padding: 10px;
+  font-weight: bold;
+  width: 80px;
 `;
 
-export default class BuildControl extends Component{
-
-    render(){
-        console.log("disabled: ", this.props.disabled);
-        return (
-            <BuildControlDiv>
-                <LabelDiv>{this.props.label} </LabelDiv>
-                <BuildControlButtonLess onClick={
-                    ()=>{
-                        this.props.removeHandler(this.props.type);
-                    }} disabled = {this.props.disabled}> Less </BuildControlButtonLess>
-                <BuildControlButtonMore onClick={
-                    ()=>{
-                        this.props.addHandler(this.props.type);
-                    }
-                }> More </BuildControlButtonMore>
-            </BuildControlDiv>
-        );
-    };
-
+export default class BuildControl extends Component {
+  render() {
+    console.log("disabled: ", this.props.disabled);
+    return (
+      <BuildControlDiv>
+        <LabelDiv>{this.props.label} </LabelDiv>
+        <BuildControlButtonLess
+          onClick={() => {
+            this.props.removeHandler(this.props.type);
+          }}
+          disabled={this.props.disabled}
+        >
+          {" "}
+          Less{" "}
+        </BuildControlButtonLess>
+        <BuildControlButtonMore
+          onClick={() => {
+            this.props.addHandler(this.props.type);
+          }}
+        >
+          {" "}
+          More{" "}
+        </BuildControlButtonMore>
+      </BuildControlDiv>
+    );
+  }
 }
