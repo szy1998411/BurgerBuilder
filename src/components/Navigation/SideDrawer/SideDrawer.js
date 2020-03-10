@@ -2,6 +2,7 @@ import React from "react";
 import Logo from "../../Logo/Logo";
 import Items from "../Items/Items";
 import styled from "@emotion/styled";
+import BackDrop from "../../UI/BackDrop/BackDrop";
 
 const SideDrawerDiv = styled.div`
   position: fixed;
@@ -35,15 +36,26 @@ const LogoDiv = styled.div`
 `;
 
 const SideDrawer = props => {
+  let attach = "translateX(-100%)";
+  if (props.open) {
+    attach = "translateX(0)";
+  }
   return (
-    <SideDrawerDiv>
-      <LogoDiv>
-        <Logo />
-      </LogoDiv>
-      <nav>
-        <Items />
-      </nav>
-    </SideDrawerDiv>
+    <React.Fragment>
+      <BackDrop show={props.open} clicked={props.close} />
+      <SideDrawerDiv
+        style={{
+          transform: attach
+        }}
+      >
+        <LogoDiv>
+          <Logo />
+        </LogoDiv>
+        <nav>
+          <Items />
+        </nav>
+      </SideDrawerDiv>
+    </React.Fragment>
   );
 };
 

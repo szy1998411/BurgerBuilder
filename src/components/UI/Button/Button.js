@@ -39,13 +39,13 @@ const Button = props => {
   if (props.type === "Danger") {
     return (
       <StyledButtonDanger onClick={props.clicked}>
-        {props.children}{" "}
+        {props.children}
       </StyledButtonDanger>
     );
   } else {
     return (
       <StyledButtonSuccess onClick={props.clicked}>
-        {props.children}{" "}
+        {props.children}
       </StyledButtonSuccess>
     );
   }

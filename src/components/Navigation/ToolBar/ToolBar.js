@@ -2,6 +2,8 @@ import React from "react";
 import styled from "@emotion/styled";
 import Logo from "../../Logo/Logo";
 import Items from "../Items/Items";
+import DrawerToggle from "../SideDrawer/DrawerToggle/DrawerToggle";
+
 const ToolBarHeader = styled.header`
   height: 56px;
   width: 100%;
@@ -30,7 +32,7 @@ const ToolBarNav = styled.nav`
 
 const ToolBar = props => (
   <ToolBarHeader>
-    <div> Menu </div>
+    <DrawerToggle clicked={props.togglehandler} />
     <LogoDiv>
       <Logo />
     </LogoDiv>
