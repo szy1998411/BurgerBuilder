@@ -66,7 +66,6 @@ const LabelDiv = styled.div`
 
 export default class BuildControl extends Component {
   render() {
-    console.log("disabled: ", this.props.disabled);
     return (
       <BuildControlDiv>
         <LabelDiv>{this.props.label} </LabelDiv>

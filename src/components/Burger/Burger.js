@@ -21,7 +21,6 @@ export default class Burger extends Component {
     super(props);
   }
   render() {
-    console.log("props: ", this.props);
     let transformedIngredients = Object.keys(this.props.ingredients)
       .map(key => {
         return [...Array(this.props.ingredients[key])].map((_, i) => {

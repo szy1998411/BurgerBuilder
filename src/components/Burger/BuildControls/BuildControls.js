@@ -60,7 +60,6 @@ const OrderButton = styled.button`
 
 export default class BuildControls extends Component {
   render() {
-    console.log("   ", this.props);
     const controls = [
       { label: "Salad", type: "salad" },
       { label: "Bacon", type: "bacon" },

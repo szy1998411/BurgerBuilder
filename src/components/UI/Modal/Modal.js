@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import styled from "@emotion/styled";
 import BackDrop from "../BackDrop/BackDrop";
 const ModalDiv = styled.div`
@@ -20,37 +20,39 @@ const ModalDiv = styled.div`
   }
 `;
 
-class Modal extends Component{
-    constructor(props){
-        super(props);
-    }
-    
-    shouldComponentUpdate(nextProps, nextState) {
-        if(nextProps.show !== this.props.show){
-            return true;
-        }
-    }
+class Modal extends Component {
+  constructor(props) {
+    super(props);
+  }
 
-
-
-    render(){
-        return (
-            <React.Fragment>
-              <BackDrop show={this.props.showPurchase} clicked={this.props.modalClosed} />
-              <ModalDiv
-                style={{
-                  transform: this.props.showPurchase
-                    ? "translateY(0)"
-                    : "translateY(-100vh)",
-                  opacity: this.props.showPurchase ? "1" : "0"
-                }}
-              >
-                {this.props.children}
-              </ModalDiv>
-            </React.Fragment>
-          );
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.children !== this.props.children) {
+      this.setState({
+        dummy: true
+      });
     }
+  }
+
+  render() {
+    return (
+      <React.Fragment>
+        <BackDrop
+          show={this.props.showPurchase}
+          clicked={this.props.modalClosed}
+        />
+        <ModalDiv
+          style={{
+            transform: this.props.showPurchase
+              ? "translateY(0)"
+              : "translateY(-100vh)",
+            opacity: this.props.showPurchase ? "1" : "0"
+          }}
+        >
+          {this.props.children}
+        </ModalDiv>
+      </React.Fragment>
+    );
+  }
 }
-
 
 export default Modal;
